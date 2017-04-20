@@ -9,15 +9,18 @@
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2qqzk47k1vfzx</unique-id>
     <saved-with-version>22100</saved-with-version>
-    <used-plugins />
+    <used-plugins>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
     <used-behaviors />
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
-        <height>480</height>
+        <width>640</width>
+        <height>640</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -37,7 +40,20 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="TiledBackground" sid="1761231073783771">
+            <plugin id="TiledBg" />
+            <texture original-source="\\Dbgadc1\programmers\SecondoProgettoConstruct\0_CommonAssets\Sprites\Blocks\BackgroundTile.png" />
+        </object-type>
+        <object-type name="Sprite" sid="7158184434548831">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6147522644038977" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="\\Dbgadc1\programmers\SecondoProgettoConstruct\0_CommonAssets\Sprites\Blocks\SolidBlock.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
