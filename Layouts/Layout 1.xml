@@ -2720,6 +2720,8 @@
                         <MoveTime>0.25</MoveTime>
                         <Timer>0</Timer>
                         <Player>0</Player>
+                        <BombsNumber>2</BombsNumber>
+                        <BombRange>0</BombRange>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -2739,6 +2741,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2767,6 +2782,8 @@
                         <MoveTime>0.25</MoveTime>
                         <Timer>0</Timer>
                         <Player>1</Player>
+                        <BombsNumber>2</BombsNumber>
+                        <BombRange>0</BombRange>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -2786,6 +2803,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.5</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2797,6 +2827,75 @@
                         <depth>0</depth>
                         <hotspotX>0.484375</hotspotX>
                         <hotspotY>0.765625</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Bomb" uid="95">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Range>0</Range>
+                        <Counter>0</Counter>
+                        <BomberUID>0</BomberUID>
+                        <SolidState>false</SolidState>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-128</x>
+                        <y>96</y>
+                        <z>0</z>
+                        <width>48</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Fire" uid="96">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Fade">
+                            <properties>
+                                <active-at-start>Yes</active-at-start>
+                                <fade-in-time>0</fade-in-time>
+                                <wait-time>0</wait-time>
+                                <fade-out-time>1</fade-out-time>
+                                <destroy>After fade out</destroy>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-128</x>
+                        <y>256</y>
+                        <z>0</z>
+                        <width>48</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
