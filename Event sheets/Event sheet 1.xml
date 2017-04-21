@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable comment="1 SpawnFlames 0 StopSpawn" constant="0" name="StopFlames" sid="705708954695134" static="0" type="number">1</variable>
         <variable constant="0" name="DIR_0" sid="961688068364421" static="0" type="number">-1</variable>
         <variable constant="0" name="DIR_RIGHT" sid="3181898044741336" static="0" type="number">0</variable>
         <variable constant="0" name="DIR_DOWN" sid="11214138772336" static="0" type="number">90</variable>
@@ -15,219 +16,269 @@
                         <condition id="-2" name="On start of layout" sid="891819374320118" type="System" />
                     </conditions>
                     <actions>
-                        <action id="5" name="Set frame" sid="346484868198818" type="BomberPlayer">
+                        <action id="5" name="Set frame" sid="346484868198818" type="Player1">
                             <param id="0" name="Frame number">0</param>
                         </action>
-                        <action id="2" name="Stop" sid="637092211313855" type="BomberPlayer" />
+                        <action id="2" name="Stop" sid="637092211313855" type="Player1" />
+                        <action id="5" name="Set frame" sid="310339833879936" type="Player2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="194416681595094" type="Player2" />
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="7441201410274147" title="Player0Controls">
+        <event-group description="" sid="695175286288436" title="Player1Controls">
             <sub-events>
-                <event-block sid="6487730325525733">
+                <event-block sid="809754177873558">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="1735426976269777" type="BomberPlayer">
-                            <param id="0" name="Instance variable">Player</param>
-                            <param id="1" name="Comparison">0</param>
+                        <condition id="0" name="On key pressed" sid="937365658763731" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="484046616528550" type="Player1">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_UP</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="529986375358007" type="Player1">
+                            <param id="0" name="Animation">&quot;Up&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="320312766402254">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="581697828834851" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="936851529694152" type="Player1">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_DOWN</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="219125222515099" type="Player1">
+                            <param id="0" name="Animation">&quot;Down&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="837976305499394">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="231437796097974" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="844800344684809" type="Player1">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_LEFT</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="327996968151594" type="Player1">
+                            <param id="0" name="Animation">&quot;Left&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="108671396789841">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="448624220888365" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="803046225317310" type="Player1">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_RIGHT</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="769858749541629" type="Player1">
+                            <param id="0" name="Animation">&quot;Right&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="579905112225116">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="537167783595472" type="Player1">
+                            <param id="0" name="Object">ExplosiveSolidBlock</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="547535378929496" type="Player1">
+                            <param id="0" name="Object">SolidBlock</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="376820840776424" type="Player1">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="490399308216089" type="Player1">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="675625901741420" type="Player1" />
+                    </actions>
+                </event-block>
+                <event-block sid="632647857031661">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="782418507095261" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="200117444955526" type="Player1">
+                            <param id="0" name="Instance variable">BombsNumber</param>
+                            <param id="1" name="Comparison">4</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="2183772136257002">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="1148967894351527" type="Keyboard">
-                                    <param id="0" name="Key">87 (W)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="9433789956805078" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_UP</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="849192233720495" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Up&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="9560313613343034">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="7173290669436814" type="Keyboard">
-                                    <param id="0" name="Key">83 (S)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="9232265034828452" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_DOWN</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="7115842931815267" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Down&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="5434803164027232">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="1516267213192878" type="Keyboard">
-                                    <param id="0" name="Key">65 (A)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="5346788384174767" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_LEFT</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="1430517605447281" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Left&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="3985266163826824">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="9955223379348608" type="Keyboard">
-                                    <param id="0" name="Key">68 (D)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="3481083611170084" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_RIGHT</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="6694467619085296" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Right&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block any="1" sid="996494780511168">
-                            <conditions>
-                                <condition id="0" name="On collision with another object" sid="357095333529887" type="BomberPlayer">
-                                    <param id="0" name="Object">ExplosiveSolidBlock</param>
-                                </condition>
-                                <condition id="0" name="On collision with another object" sid="693846588506580" type="BomberPlayer">
-                                    <param id="0" name="Object">SolidBlock</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="473989937582993" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_0</param>
-                                </action>
-                                <action id="5" name="Set frame" sid="132527109181016" type="BomberPlayer">
-                                    <param id="0" name="Frame number">0</param>
-                                </action>
-                                <action id="2" name="Stop" sid="245946813295066" type="BomberPlayer" />
-                            </actions>
-                        </event-block>
-                    </sub-events>
+                    <actions>
+                        <action id="-3" name="Create object" sid="912925389518863" type="System">
+                            <param id="0" name="Object to create">Bomb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">int(Player1.ImagePointX(0) / 64) * 64 + 32</param>
+                            <param id="3" name="Y">int(Player1.ImagePointY(0) / 64) * 64 + 32</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="682166849789242" type="Bomb">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="484993432789169" type="Player1">
+                            <param id="0" name="Instance variable">BombsNumber</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="259349073693120" type="Bomb">
+                            <param id="0" name="Instance variable">SpawnRange</param>
+                            <param id="1" name="Value">Player1.BombRangePlayer</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="167234521923602" type="Bomb">
+                            <param id="0" name="Instance variable">BomberUID</param>
+                            <param id="1" name="Value">Player1.UID</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="6873333218228112" title="Player1Controls">
+        <event-group description="" sid="6873333218228112" title="Player2Controls">
             <sub-events>
-                <event-block sid="2635344412876955">
+                <event-block sid="200308943031545">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="7671982177752888" type="BomberPlayer">
-                            <param id="0" name="Instance variable">Player</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
+                        <condition id="0" name="On key pressed" sid="111873820668846" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
                         </condition>
                     </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="2268758040536911">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="1137994484124839" type="Keyboard">
-                                    <param id="0" name="Key">38 (Up arrow)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="7284943761734253" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_UP</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="6577885859137682" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Up&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="8869411298734586">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="1535354835552916" type="Keyboard">
-                                    <param id="0" name="Key">40 (Down arrow)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="9702501863083273" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_DOWN</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="3387964517910417" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Down&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="5358943461977227">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="4914271093729861" type="Keyboard">
-                                    <param id="0" name="Key">37 (Left arrow)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="259421899086827" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_LEFT</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="5929255569628577" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Left&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="3031116627580124">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="7665155876043444" type="Keyboard">
-                                    <param id="0" name="Key">39 (Right arrow)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="6849073923498322" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_RIGHT</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="4904425467937293" type="BomberPlayer">
-                                    <param id="0" name="Animation">&quot;Right&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block any="1" sid="913463181283390">
-                            <conditions>
-                                <condition id="0" name="On collision with another object" sid="527705571448131" type="BomberPlayer">
-                                    <param id="0" name="Object">ExplosiveSolidBlock</param>
-                                </condition>
-                                <condition id="0" name="On collision with another object" sid="765401832741628" type="BomberPlayer">
-                                    <param id="0" name="Object">SolidBlock</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="710811586012552" type="BomberPlayer">
-                                    <param id="0" name="Instance variable">Direction</param>
-                                    <param id="1" name="Value">DIR_0</param>
-                                </action>
-                                <action id="5" name="Set frame" sid="773328525628820" type="BomberPlayer">
-                                    <param id="0" name="Frame number">0</param>
-                                </action>
-                                <action id="2" name="Stop" sid="881188789074547" type="BomberPlayer" />
-                            </actions>
-                        </event-block>
-                    </sub-events>
+                    <actions>
+                        <action id="-10" name="Set value" sid="280290197674838" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_UP</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="386713185292139" type="Player2">
+                            <param id="0" name="Animation">&quot;Up&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="857567020270471">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="697093682908818" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="973496997554820" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_DOWN</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="762257878616865" type="Player2">
+                            <param id="0" name="Animation">&quot;Down&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="976241333088452">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="986731237378794" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="727387292104473" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_LEFT</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="889879616192237" type="Player2">
+                            <param id="0" name="Animation">&quot;Left&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="516028850482807">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="882709292879637" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="514266040901969" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_RIGHT</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="991321731129859" type="Player2">
+                            <param id="0" name="Animation">&quot;Right&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="165094394106435">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="980750393974236" type="Player2">
+                            <param id="0" name="Object">ExplosiveSolidBlock</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="108588406576282" type="Player2">
+                            <param id="0" name="Object">SolidBlock</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="305535431842294" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Value">DIR_0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="359465327425005" type="Player2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="197525832311079" type="Player2" />
+                    </actions>
+                </event-block>
+                <event-block sid="701903219122832">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="846965467479216" type="Keyboard">
+                            <param id="0" name="Key">96 (0 (tn))</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="149806480040413" type="Player2">
+                            <param id="0" name="Instance variable">BombsNumber</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="281201706257920" type="System">
+                            <param id="0" name="Object to create">Bomb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">int(Player2.ImagePointX(0) / 64) * 64 + 32</param>
+                            <param id="3" name="Y">int(Player2.ImagePointY(0) / 64) * 64 + 32</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="816407118037004" type="Bomb">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="472387809391549" type="Player2">
+                            <param id="0" name="Instance variable">BombsNumber</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="332865056503097" type="Bomb">
+                            <param id="0" name="Instance variable">BomberUID</param>
+                            <param id="1" name="Value">Player1.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="569900391821273" type="Bomb">
+                            <param id="0" name="Instance variable">SpawnRange</param>
+                            <param id="1" name="Value">Player1.BombRangePlayer</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -235,7 +286,7 @@
             <sub-events>
                 <event-block sid="976736101815174">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="771075965451713" type="BomberPlayer">
+                        <condition id="-7" name="Compare instance variable" sid="771075965451713" type="Player1">
                             <param id="0" name="Instance variable">Direction</param>
                             <param id="1" name="Comparison">1</param>
                             <param id="2" name="Value">DIR_0</param>
@@ -245,56 +296,124 @@
                     <sub-events>
                         <event-block sid="918149211879576">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="321754747548244" type="BomberPlayer">
+                                <condition id="-7" name="Compare instance variable" sid="321754747548244" type="Player1">
                                     <param id="0" name="Instance variable">Direction</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">DIR_LEFT</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-1" name="Set X" sid="5586256398862564" type="BomberPlayer">
+                                <action id="-1" name="Set X" sid="5586256398862564" type="Player1">
                                     <param id="0" name="X">Self.X - Self.Speed * dt</param>
                                 </action>
                             </actions>
                         </event-block>
                         <event-block sid="2525138759154856">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="1659086067740694" type="BomberPlayer">
+                                <condition id="-7" name="Compare instance variable" sid="1659086067740694" type="Player1">
                                     <param id="0" name="Instance variable">Direction</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">DIR_RIGHT</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-1" name="Set X" sid="3121320208790603" type="BomberPlayer">
+                                <action id="-1" name="Set X" sid="3121320208790603" type="Player1">
                                     <param id="0" name="X">Self.X + Self.Speed * dt</param>
                                 </action>
                             </actions>
                         </event-block>
                         <event-block sid="5061472925816719">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="4657808061097703" type="BomberPlayer">
+                                <condition id="-7" name="Compare instance variable" sid="4657808061097703" type="Player1">
                                     <param id="0" name="Instance variable">Direction</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">DIR_UP</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-2" name="Set Y" sid="5676832241397386" type="BomberPlayer">
+                                <action id="-2" name="Set Y" sid="5676832241397386" type="Player1">
                                     <param id="0" name="Y">Self.Y - Self.Speed * dt</param>
                                 </action>
                             </actions>
                         </event-block>
                         <event-block sid="4102384074980826">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="5693458558472515" type="BomberPlayer">
+                                <condition id="-7" name="Compare instance variable" sid="5693458558472515" type="Player1">
                                     <param id="0" name="Instance variable">Direction</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">DIR_DOWN</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-2" name="Set Y" sid="7940523986618132" type="BomberPlayer">
+                                <action id="-2" name="Set Y" sid="7940523986618132" type="Player1">
+                                    <param id="0" name="Y">Self.Y + Self.Speed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="120239238687267">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="281382332171681" type="Player2">
+                            <param id="0" name="Instance variable">Direction</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">DIR_0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="632232561015815">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="969089060581523" type="Player2">
+                                    <param id="0" name="Instance variable">Direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">DIR_LEFT</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="755792020915748" type="Player2">
+                                    <param id="0" name="X">Self.X - Self.Speed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="658136226237282">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="232951912955800" type="Player2">
+                                    <param id="0" name="Instance variable">Direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">DIR_RIGHT</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="672443312057596" type="Player2">
+                                    <param id="0" name="X">Self.X + Self.Speed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="192577163987771">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="643423627932576" type="Player2">
+                                    <param id="0" name="Instance variable">Direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">DIR_UP</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="102762991341679" type="Player2">
+                                    <param id="0" name="Y">Self.Y - Self.Speed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="698163059213688">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="490239754473322" type="Player2">
+                                    <param id="0" name="Instance variable">Direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">DIR_DOWN</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="985757430749533" type="Player2">
                                     <param id="0" name="Y">Self.Y + Self.Speed * dt</param>
                                 </action>
                             </actions>
@@ -305,86 +424,100 @@
         </event-group>
         <event-group description="" sid="344888639793440" title="Bomb">
             <sub-events>
-                <event-block sid="632647857031661">
+                <event-block sid="697577756407489">
                     <conditions>
-                        <condition id="0" name="On key pressed" sid="782418507095261" type="Keyboard">
-                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="200117444955526" type="BomberPlayer">
-                            <param id="0" name="Instance variable">BombsNumber</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
+                        <condition id="-1" name="Every tick" sid="228194496809948" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-3" name="Create object" sid="912925389518863" type="System">
-                            <param id="0" name="Object to create">Bomb</param>
-                            <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">int(BomberPlayer.ImagePointX(0) / 64) * 64 + 32</param>
-                            <param id="3" name="Y">int(BomberPlayer.ImagePointY(0) / 64) * 64 + 32</param>
-                        </action>
-                        <action behavior="Solid" id="0" name="Set enabled" sid="682166849789242" type="Bomb">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action id="-12" name="Subtract from" sid="484993432789169" type="BomberPlayer">
-                            <param id="0" name="Instance variable">BombsNumber</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="259349073693120" type="Bomb">
-                            <param id="0" name="Instance variable">Range</param>
-                            <param id="1" name="Value">BomberPlayer.BombRange</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="167234521923602" type="Bomb">
-                            <param id="0" name="Instance variable">BomberUID</param>
-                            <param id="1" name="Value">BomberPlayer.UID</param>
+                        <action id="-11" name="Add to" sid="553598329543703" type="Bomb">
+                            <param id="0" name="Instance variable">Counter</param>
+                            <param id="1" name="Value">dt</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="818340328891643">
+                <event-block any="1" sid="916769904099208">
                     <conditions>
-                        <condition id="0" name="On function" sid="108302963533003" type="Function">
-                            <param id="0" name="Name">&quot;SpawnFire&quot;</param>
+                        <condition id="-7" name="Compare instance variable" sid="573390026668605" type="Bomb">
+                            <param id="0" name="Instance variable">Counter</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="877439896103602" type="Fire">
+                            <param id="0" name="Object">Bomb</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="951551334552882" type="Bomb" />
+                        <action id="0" name="Call function" sid="681907678973244" type="Function">
+                            <param id="0" name="Name">&quot;FireDistance&quot;</param>
+                            <param id="1" name="Parameter {n}">Bomb.SpawnRange{###}64{###}0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="837164381116559" type="Function">
+                            <param id="0" name="Name">&quot;FireDistance&quot;</param>
+                            <param id="1" name="Parameter {n}">Bomb.SpawnRange{###}-64{###}0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="523982907510600" type="Function">
+                            <param id="0" name="Name">&quot;FireDistance&quot;</param>
+                            <param id="1" name="Parameter {n}">Bomb.SpawnRange{###}0{###}64</param>
+                        </action>
+                        <action id="0" name="Call function" sid="265561691635747" type="Function">
+                            <param id="0" name="Name">&quot;FireDistance&quot;</param>
+                            <param id="1" name="Parameter {n}">Bomb.SpawnRange{###}0{###}-64</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="372470682917452" title="Functions">
+            <sub-events>
+                <event-block sid="967994615557372">
+                    <conditions>
+                        <condition id="0" name="On function" sid="557394544226361" type="Function">
+                            <param id="0" name="Name">&quot;FireDistance&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="657876322930586">
+                        <event-block sid="807327538818113">
                             <conditions>
-                                <condition id="-10" name="For" sid="801844111212730" type="System">
-                                    <param id="0" name="Name">&quot;Range&quot;</param>
-                                    <param id="1" name="Start index">1</param>
+                                <condition id="-10" name="For" sid="322197398770490" type="System">
+                                    <param id="0" name="Name">&quot;FireLoop&quot;</param>
+                                    <param id="1" name="Start index">0</param>
                                     <param id="2" name="End index">Function.Param(0)</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-3" name="Create object" sid="562917297701595" type="System">
+                                <action id="-3" name="Create object" sid="752675953901457" type="System">
                                     <param id="0" name="Object to create">Fire</param>
-                                    <param id="1" name="Layer">0</param>
-                                    <param id="2" name="X">Bomb.X + (Function.Param(1) * loopindex(&quot;Range&quot;))</param>
-                                    <param id="3" name="Y">Bomb.Y + (Function.Param(1) * loopindex(&quot;Range&quot;))</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">Bomb.X + (Function.Param(1) * loopindex(&quot;FireLoop&quot;))</param>
+                                    <param id="3" name="Y">Bomb.Y + (Function.Param(2) * loopindex(&quot;FireLoop&quot;))</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <event-block sid="998901959635358">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="676273419335054" type="Fire">
-                                    <param id="0" name="Object">SolidBlock</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="165975147613360" type="Fire" />
-                                <action id="-24" name="Stop loop" sid="549739029274147" type="System" />
-                            </actions>
-                        </event-block>
-                        <event-block sid="121117992567212">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="277418014105125" type="Fire">
-                                    <param id="0" name="Object">ExplosiveSolidBlock</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-24" name="Stop loop" sid="920811815717367" type="System" />
-                            </actions>
+                            <sub-events>
+                                <event-block sid="613701157521274">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="981042879484441" type="Fire">
+                                            <param id="0" name="Object">ExplosiveSolidBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="346299691366161" type="ExplosiveSolidBlock" />
+                                        <action id="-24" name="Stop loop" sid="899392887812613" type="System" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="983087817562945">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="555719386942699" type="Fire">
+                                            <param id="0" name="Object">SolidBlock</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="868449901013198" type="Fire" />
+                                        <action id="-24" name="Stop loop" sid="548308150504398" type="System" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
