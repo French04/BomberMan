@@ -3,7 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <variable comment="1 SpawnFlames 0 StopSpawn" constant="0" name="StopFlames" sid="705708954695134" static="0" type="number">1</variable>
         <variable constant="0" name="DIR_0" sid="961688068364421" static="0" type="number">-1</variable>
         <variable constant="0" name="DIR_RIGHT" sid="3181898044741336" static="0" type="number">0</variable>
         <variable constant="0" name="DIR_DOWN" sid="11214138772336" static="0" type="number">90</variable>
@@ -272,11 +271,11 @@
                         </action>
                         <action id="-10" name="Set value" sid="332865056503097" type="Bomb">
                             <param id="0" name="Instance variable">BomberUID</param>
-                            <param id="1" name="Value">Player1.UID</param>
+                            <param id="1" name="Value">Player2.UID</param>
                         </action>
                         <action id="-10" name="Set value" sid="569900391821273" type="Bomb">
                             <param id="0" name="Instance variable">SpawnRange</param>
-                            <param id="1" name="Value">Player1.BombRangePlayer</param>
+                            <param id="1" name="Value">Player2.BombRangePlayer</param>
                         </action>
                     </actions>
                 </event-block>
